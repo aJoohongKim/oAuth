@@ -1,4 +1,14 @@
 OAuth::Application.routes.draw do
+  get "authorize/dropbox"
+
+  get "authorize/skydrive"
+
+  get "authorize/googledrive"
+
+  match 'dropbox/authorize', :controller => 'dropbox', :action => 'authorize'
+  match 'dropbox/upload', :controller => 'dropbox', :action => 'upload'
+  match 'dropbox/display_tokens', controller: 'dropbox', action: 'display_tokens'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
